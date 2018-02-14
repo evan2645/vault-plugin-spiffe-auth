@@ -6,6 +6,8 @@ This document will contain the initial implementation design.
 The below tables show some example SPIFFE trust domains and how they may map to a Vault cluster and auth point, the current examples would validate based on and individual trust domains CA, there is currently no concept for heirachical trust domains and validation based on trust chain.
 
 ### Simple example where an organisation has a single trust domain per environment
+It is generally good practice to issolate secrets across environments, for example a developer may have different levels of permissions on a Dev cluster which does not carry production data.  Staging would most likely not be using production datastores or other elements however depending on the purpose of the Staging environment, i.e. should it carry sensitive or regulated infomation then it would most likely have tigher access control.  If Staging uses dummy or non-sensitive data then it could potentially share the development Vault cluster.
+
 | Trust Domain            | Vault Cluster | Auth Mount Point |
 | ----------------------- | ------------- | ---------------- |
 | spiffe://prod.acme.net/ | Production    | /v1/auth/spiffe  |
@@ -14,6 +16,8 @@ The below tables show some example SPIFFE trust domains and how they may map to 
   
   
 ### Example showing `spiffe://prod.acme.net/` as a global identity and a trust domain per geo location.
+A large geo-distributed application would most likely run Vault premium which allows multi-datacenter performance replication.  In this instance a Vault Cluster would exist in each Region however the Clusters would be joined and in terms or read and writes would share the same data.
+
 | Trust Domain               | Vault Cluster | Auth Mount Point   | Comments |
 | -------------------------- | ------------- | ------------------ | ------------------------------------------ |
 | spiffe://us.prod.acme.net/ | Production    | /v1/auth/spiffe/us | Vault premium with performance replication | 
