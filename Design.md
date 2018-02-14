@@ -32,7 +32,7 @@ In the below example, the two trust domains `insurance` and `consumer` would mos
 | --------------------------------------------- | -------------- | ------------------------ | --------- |
 | spiffe://insurance.bigbank.com/               | Production     | v1/auth/spiffe/insurance |           |
 | spiffe://consumer.bigbank.com/                | Production     | v1/auth/spiffe/consumer  |           |
-| spiffe://support-site.prod.consumer.acme.net/ | Production?    | v1/auth/spiffe/support   | support-site has dedicated infra |
+| spiffe://support-site.prod.consumer.bigbank.com/ | Production?    | v1/auth/spiffe/support   | support-site has dedicated infra |
 
 
 ## Questions / Assumptions
