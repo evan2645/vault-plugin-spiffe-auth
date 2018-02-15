@@ -50,6 +50,7 @@ In the below example, the two trust domains `insurance` and `consumer` would mos
 ## Vault Identity Mapping 
 [Vault Identity Secrets Engine Documentation](https://www.vaultproject.io/docs/secrets/identity/index.html)
 Given the possible structure combinations as seen in the examples of SPIFFE IDs and Trust Domains Vault Identity Mappings will translate to the following simplified levels:
+
 | SPIFFE       | Vault  |
 | ------------ | ------ |
 | Trust Domain | [Group](https://www.vaultproject.io/api/secret/identity/entity.html)  |
